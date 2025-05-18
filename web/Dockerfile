@@ -21,6 +21,7 @@ COPY --chown=realpython src/ src/
 COPY --chown=realpython test/ test/
 
 # Fix permissions explicitly
+RUN chmod -R 755 src/
 RUN python -m pip install . -c constraints.txt && \
     python -m pytest test/unit/ && \
     python -m flake8 src/ && \
